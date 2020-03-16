@@ -4,14 +4,14 @@
 <script>hljs.initHighlightingOnLoad();</script>
 <h1 id="easymail-class">EasyMail Class</h1>
 <p>Make Send Mail Easy In Python 3</p>
-<code class="lang-python">
+<pre><code class="lang-python">
 try:
     #Import EasyMail
     import easyemail
 except(ModuleNotFoundError,ImportError):
     #Use Folder Version
     from . import easymail
-</code>
+</code></pre>
 <p>1、Send An Plain Email</p>
 <pre><code class="lang-python">def sendPlain(client,
               receivers,
