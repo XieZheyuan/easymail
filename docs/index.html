@@ -1,0 +1,86 @@
+<h1 id="easymail-class">EasyMail Class</h1>
+<p>Make Send Mail Easy In Python 3</p>
+<pre><code class="lang-python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-comment">#Import EasyMail</span>
+    <span class="hljs-keyword">import</span> easyemail
+<span class="hljs-keyword">except</span>(<span class="hljs-type">ModuleNotFoundError</span>,<span class="hljs-type">ImportError</span>):
+    <span class="hljs-comment">#Use Folder Version</span>
+    <span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> easymail
+</code></pre>
+<p>1、Send An Plain Email</p>
+<pre><code class="lang-python">def sendPlain(client,
+              receivers,
+              <span class="hljs-literal">text</span>=<span class="hljs-string">""</span>,
+              subject=<span class="hljs-string">""</span>,
+              sender_name=None,
+              receivers_name=None,
+              encoding=<span class="hljs-string">"utf-8"</span>
+              ):
+    '''
+    Send Plain Email
+    :param client:EMAIL CLIENT(SMTPClient)
+    :param receivers:the Receivers(str <span class="hljs-keyword">or</span> list <span class="hljs-keyword">or</span> tuple <span class="hljs-keyword">or</span> frozenset)
+    :param <span class="hljs-literal">text</span>:Email HTML <span class="hljs-keyword">Body</span>
+    :param subject:Email Subject
+    :param sender_name:Email Sender<span class="hljs-symbol">'s</span> Name(From,<span class="hljs-keyword">Default</span> value <span class="hljs-keyword">is</span> sender Email Address)
+    :param receivers_name:Email Receivers' Name(<span class="hljs-keyword">To</span>,<span class="hljs-keyword">Default</span> value <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>st Receivers)
+    :param encoding:<span class="hljs-literal">Text</span>,Subject,sender_name,receivers_name <span class="hljs-symbol">'s</span> encoding,<span class="hljs-keyword">default</span> <span class="hljs-keyword">is</span> <span class="hljs-symbol">'utf</span>-<span class="hljs-number">8</span>'
+    :<span class="hljs-keyword">return</span>:Hasn<span class="hljs-symbol">'t</span> <span class="hljs-keyword">return</span>
+    '''
+    pass
+</code></pre>
+<p>You can use this futc. to send an email,like this</p>
+<pre><code class="lang-python"><span class="hljs-attribute">from</span> easymail import *
+client=SMTPClient(<span class="hljs-string">"smtp.abc.com"</span>)<span class="hljs-comment">#Your Email Server</span>
+client.login(<span class="hljs-string">"def<span class="hljs-variable">@abc</span>.com"</span>,<span class="hljs-string">"123456"</span>)<span class="hljs-comment">#Your Email And Your Password</span>
+sendPlain(client,[<span class="hljs-string">"ghi<span class="hljs-variable">@abc</span>.com"</span>],<span class="hljs-string">"The Subject"</span>,<span class="hljs-string">"HelloWorld"</span>,<span class="hljs-string">"ghi"</span>,<span class="hljs-string">"def"</span>,<span class="hljs-string">"utf-8"</span>)
+</code></pre>
+<p>The HTML Futc.:</p>
+<pre><code class="lang-python">def sendHTML(client:SMTPClient,
+              receivers,
+              <span class="hljs-literal">text</span>=<span class="hljs-string">""</span>,
+              subject=<span class="hljs-string">""</span>,
+              sender_name=None,
+              receivers_name=None,
+              encoding=<span class="hljs-string">"utf-8"</span>
+              ):
+    '''
+    Send Plain Email
+    :param client:EMAIL CLIENT(SMTPClient)
+    :param receivers:the Receivers(str <span class="hljs-keyword">or</span> list <span class="hljs-keyword">or</span> tuple <span class="hljs-keyword">or</span> frozenset)
+    :param <span class="hljs-literal">text</span>:Email <span class="hljs-keyword">Body</span>
+    :param subject:Email Subject
+    :param sender_name:Email Sender<span class="hljs-symbol">'s</span> Name(From,<span class="hljs-keyword">Default</span> value <span class="hljs-keyword">is</span> sender Email Address)
+    :param receivers_name:Email Receivers' Name(<span class="hljs-keyword">To</span>,<span class="hljs-keyword">Default</span> value <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>st Receivers)
+    :param encoding:<span class="hljs-literal">Text</span>,Subject,sender_name,receivers_name <span class="hljs-symbol">'s</span> encoding,<span class="hljs-keyword">default</span> <span class="hljs-keyword">is</span> <span class="hljs-symbol">'utf</span>-<span class="hljs-number">8</span>'
+    :<span class="hljs-keyword">return</span>:Hasn<span class="hljs-symbol">'t</span> <span class="hljs-keyword">return</span>
+
+    '''
+    pass
+</code></pre>
+<p>Html is similar to the function of sending plain text, so I won&#39;t repeat it here.</p>
+<p>send Any Text:</p>
+<pre><code class="lang-python">def sendAnyText(client:SMTPClient,
+              receivers,
+                typeof=<span class="hljs-string">"plain"</span>,
+              <span class="hljs-literal">text</span>=<span class="hljs-string">""</span>,
+              subject=<span class="hljs-string">""</span>,
+              sender_name=None,
+              receivers_name=None,
+              encoding=<span class="hljs-string">"utf-8"</span>
+              ):
+    '''
+    Send Plain Email
+    :param client:EMAIL CLIENT(SMTPClient)
+    :param receivers:the Receivers(str <span class="hljs-keyword">or</span> list <span class="hljs-keyword">or</span> tuple <span class="hljs-keyword">or</span> frozenset)
+    :param typeof:Mail <span class="hljs-keyword">Body</span> <span class="hljs-keyword">Type</span>(<span class="hljs-keyword">default</span>:plain)
+    :param <span class="hljs-literal">text</span>:Email <span class="hljs-keyword">Body</span>
+    :param subject:Email Subject
+    :param sender_name:Email Sender<span class="hljs-symbol">'s</span> Name(From,<span class="hljs-keyword">Default</span> value <span class="hljs-keyword">is</span> sender Email Address)
+    :param receivers_name:Email Receivers' Name(<span class="hljs-keyword">To</span>,<span class="hljs-keyword">Default</span> value <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>st Receivers)
+    :param encoding:<span class="hljs-literal">Text</span>,Subject,sender_name,receivers_name <span class="hljs-symbol">'s</span> encoding,<span class="hljs-keyword">default</span> <span class="hljs-keyword">is</span> <span class="hljs-symbol">'utf</span>-<span class="hljs-number">8</span>'
+    :<span class="hljs-keyword">return</span>:Hasn<span class="hljs-symbol">'t</span> <span class="hljs-keyword">return</span>
+    '''
+    pass
+</code></pre>
+<p>It&#39;s similar too!</p>
